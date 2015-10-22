@@ -3,7 +3,7 @@ import store from '../store'
 
 export default function Player(props) {
   let items = store.getState().get('tracks').map((item) => {
-    return <li>{item.get('artist')} - {item.get('title')}</li>
+    return <li onClick={props.itemClick} className="playlist-item">{item.get('artist')} - {item.get('title')}</li>
   })
   return (
     <div className="player">
