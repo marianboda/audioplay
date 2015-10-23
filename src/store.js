@@ -3,9 +3,9 @@ import I from 'immutable'
 
 var initialState = I.fromJS({
   tracks: [
-    { title: 'Ascuns', artist: 'ENVIRONMENTS'},
-    { title: 'Antennas to Heaven', artist: 'GY!BE'},
-    { title: 'Reichriddle', artist: 'Sickoakes'},
+    { id: 0, title: 'Ascuns', artist: 'ENVIRONMENTS'},
+    { id: 1, title: 'Antennas to Heaven', artist: 'GY!BE'},
+    { id: 2, title: 'Reichriddle', artist: 'Sickoakes'},
   ],
   activeIndex: 0
 })
@@ -13,6 +13,8 @@ var initialState = I.fromJS({
 var reducer = function(state = initialState, action) {
   console.log('running reducer')
   switch (action.type) {
+    case 'SELECT_ITEM':
+      return state.set('activeIndex', action.payload)
     default:
       return state
   }

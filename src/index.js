@@ -3,14 +3,23 @@ import ReactDom from 'react-dom'
 
 import Player from './components/Player'
 
+import store from './store'
+
 require('./styles/styles.sass')
 
-var itemClickHandler = (event) => {
-  console.log('item clicked', event)
+var itemClickHandler = (index) => {
+  store.dispatch({ type: 'SELECT_ITEM', payload: index })
 }
 
-var App = (props) => {
-  return <div><Player itemClick={itemClickHandler}/></div>
-}
+var App = React.createClass({
+  unsubscribe: null,
+  componentDidMount() {
+    let component = this
+    this.unsubscribe = store.subscribe(() => this.setState(store.getState()))
+  },
+  render() {
+    return <div><Player itemClick={itemClickHandler}/></div>
+  }
+})
 
 ReactDom.render(<App />, document.getElementById('mainContent'))
