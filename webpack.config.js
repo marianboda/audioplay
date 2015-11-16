@@ -10,7 +10,7 @@ module.exports = {
   },
   module: {
     loaders: [
-      {test: /\.js$/, exclude: /node_modules/, loaders: ["react-hot", "babel-loader"]},
+      {test: /\.js$/, exclude: /node_modules/, loaders: ["babel-loader"]},
       {test: /\.html$/, loader: "file?name=[name].[ext]"},
       {test: /\.sass$/, loader: "style!css!sass?indentedSyntax=sass"},
     ]
