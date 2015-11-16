@@ -3,11 +3,15 @@ import I from 'immutable'
 
 var initialState = I.fromJS({
   tracks: [
-    { id: 0, title: 'Ascuns', artist: 'ENVIRONMENTS'},
-    { id: 1, title: 'Antennas to Heaven', artist: 'GY!BE'},
-    { id: 2, title: 'Reichriddle', artist: 'Sickoakes'},
+    { id: 0, title: 'Ascuns', artist: 'ENVIRONMENTS', filename: 'a'},
+    { id: 1, title: 'Antennas to Heaven', artist: 'GY!BE', filename: 'b'},
+    {
+      id: 2, title: 'Resurrection',
+      artist: 'Brotherhood of Pagans',
+      filename: '01 Resurrection'
+    },
   ],
-  activeIndex: 0
+  activeIndex: 2
 })
 
 var reducer = function(state = initialState, action) {
